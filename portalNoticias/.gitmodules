@@ -1,0 +1,3 @@
+[submodule "portalNoticias"]
+	path = portalNoticias
+	url = https://github.com/viniciusmauri/CursoNode

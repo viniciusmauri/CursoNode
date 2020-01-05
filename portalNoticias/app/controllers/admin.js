@@ -1,6 +1,5 @@
 module.exports.formulario_add_noticia = function(application, req, res) {
     res.render('admin/formulario_add_noticia', { validacao: {}, noticia: {} });
-
 }
 
 module.exports.salvarNoticia = function(application, req, res) {
@@ -25,7 +24,5 @@ module.exports.salvarNoticia = function(application, req, res) {
 
     noticiasModel.salvarNoticia(noticia, function(error, result) {
         res.redirect("/noticias");
-        //usar o redirect para evitar problemas com reenvio de formulários.
     });
-
 }

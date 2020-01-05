@@ -2,7 +2,6 @@ var express = require('express');
 var consign = require('consign');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-var mysql = require('mysql');
 
 var app = express();
 var port = 3000;
@@ -11,6 +10,7 @@ app.set("views", "./app/views");
 app.listen(port, () =>
     console.log(`Servidor está ONLINE utilizando a porta:`, port));
 
+app.use(express.static('./app/public'));
 app.use(expressValidator());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,6 +19,7 @@ consign()
     .include("app/routes")
     .then("config/dbConnection.js")
     .then("app/models")
+    .then("app/controllers")
     .into(app);
 
 module.exports = app;
